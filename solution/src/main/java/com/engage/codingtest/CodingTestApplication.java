@@ -1,12 +1,12 @@
-package com.engage.expenses;
+package com.engage.codingtest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ExpensesApplication {
+public class CodingTestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ExpensesApplication.class, args);
+		SpringApplication.run(CodingTestApplication.class, args);
 	}
 }
