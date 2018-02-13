@@ -17,6 +17,7 @@ app.controller("ctrlExpenses", ["$rootScope", "$scope", "config", "restalchemy",
 	$rootScope.selectTabSection("expenses", 0);
 
 	var restExpenses = $restalchemy.init({ root: $config.apiroot }).at("expenses");
+	var restVat = $restalchemy.init({ root: $config.apiroot }).at("taxes/vat");
 
 	$scope.dateOptions = {
 		changeMonth: true,
@@ -29,7 +30,13 @@ app.controller("ctrlExpenses", ["$rootScope", "$scope", "config", "restalchemy",
 		restExpenses.get().then(function(expenses) {
 			$scope.expenses = expenses;
 		});
-	}
+	};
+
+    $scope.calculateVat = function() {
+        restVat.get({'gross': $scope.newExpense.amount}).then(function (vat) {
+            $scope.vatAmount = vat;
+        })
+    };
 
 	$scope.saveExpense = function() {
 		if ($scope.expensesform.$valid) {

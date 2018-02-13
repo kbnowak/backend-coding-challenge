@@ -13,11 +13,15 @@
 			</li>
 			<li>
 				<label>Amount</label>
-				<input type="text" ng-required="true" ng-model="newExpense.amount" placeholder="00.00" />
+				<input type="text" ng-required="true" ng-model="newExpense.amount" ng-change="calculateVat()" placeholder="00.00" />
 				<select ng-model="newExpense.currency">
 					<option value="GBP">GBP</option>
 					<option value="EUR">EUR</option>
 				</select>
+			</li>
+			<li>
+				<label>VAT</label>
+				<span>{{vatAmount | currency: newExpense.currency === "EUR" ? "&euro;" : "&pound;"}}</span>
 			</li>
 			<li>
 				<label>Reason</label>
