@@ -21,14 +21,12 @@ public class VatCalculationTest {
     @DataProvider(name = "taxes")
 
     public static Object[][] taxes() {
-
         return new Object[][] {
                 {100, 20, 16.67},
                 {123, 20, 20.5},
                 {600, 20, 100},
                 {1000, 23, 186.99}
         };
-
     }
 
     @Test(dataProvider = "taxes")

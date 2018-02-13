@@ -42,7 +42,9 @@ app.controller("ctrlExpenses", ["$rootScope", "$scope", "config", "restalchemy",
 	};
 
 	$scope.clearExpense = function() {
-		$scope.newExpense = {};
+		$scope.newExpense = {
+            currency: 'GBP'
+		};
 	};
 
 	// Initialise scope variables
