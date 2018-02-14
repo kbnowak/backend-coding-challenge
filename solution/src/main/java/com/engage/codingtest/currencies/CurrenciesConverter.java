@@ -19,8 +19,12 @@ public class CurrenciesConverter {
     private static final Logger logger = LoggerFactory.getLogger(CurrenciesConverter.class);
     private static final String CURRENCY_API_URL_PATTERN = "https://api.fixer.io/latest?base=%s&symbols=%s";
 
-    @Autowired
     private ObjectMapper mapper;
+
+    @Autowired
+    public CurrenciesConverter(ObjectMapper mapper) {
+        this.mapper = mapper;
+    }
 
     /**
      * Converts given amount with currency to other currency. Currency rates are taken from outer API.

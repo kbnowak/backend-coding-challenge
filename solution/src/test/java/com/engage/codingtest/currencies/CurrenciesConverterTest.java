@@ -1,7 +1,6 @@
 package com.engage.codingtest.currencies;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.testng.annotations.BeforeMethod;
@@ -21,7 +20,6 @@ import static org.mockito.Mockito.when;
 
 public class CurrenciesConverterTest {
 
-    @InjectMocks
     private CurrenciesConverter currenciesConverter;
 
     @Mock
@@ -30,6 +28,7 @@ public class CurrenciesConverterTest {
     @BeforeMethod
     public void setUp() {
         MockitoAnnotations.initMocks(this);
+        this.currenciesConverter = new CurrenciesConverter(mapperMock);
     }
 
     @DataProvider(name = "amounts")
